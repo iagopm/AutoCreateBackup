@@ -10,12 +10,9 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.w3c.dom.Document;
 
 public class PathWriter {
-	static Logger log = LogManager.getLogger(PathWriter.class.getName());
 
 	public PathWriter(String path) {
 		final File file = new File("paths.xml");
@@ -46,7 +43,6 @@ public class PathWriter {
 
 			tf.transform(domSource, sr);
 		} catch (Exception e) {
-			log.error("PATH NOT FOUND OR XML IS DAMAGED");
 		}
 	}
 }
