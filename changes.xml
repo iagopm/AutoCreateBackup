@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+	<properties>
+		<title>AutoCreateBackupPrj</title>
+		<author>iagopm</author>
+	</properties>
+	<body>
+
+		<release version="1.0" date="YYYY-MM-DD"
+			description="version/desc">
+			<!-- NEW FUNCTIONALITIES -->
+			<!-- UPDATES -->
+			<!-- FIXES -->
+			<!-- REMOVE -->
+			<!-- CHANGES ON VERSIONS -->
+			<action dev="iagopm" date="YYYY-MM-DD" type="update">
+				describe actions
+			</action>
+		</release>
+	</body>
+</document>
