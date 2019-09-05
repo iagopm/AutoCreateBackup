@@ -7,8 +7,10 @@ import readers.PathReader;
 public class PathProcessor {
 	private String path;
 
-	public PathProcessor() {
-		final File file = new File(new PathReader().getBackupPath());
+	public PathProcessor(Integer position) {
+	
+		File file = new File(new PathReader(position).getBackupPath());
+	
 		if (!file.getPath().isEmpty()) {
 			path = file.getPath();
 		} else {

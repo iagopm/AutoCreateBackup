@@ -14,7 +14,7 @@ import org.w3c.dom.Document;
 
 public class PathWriter {
 
-	public PathWriter(String path) {
+	public PathWriter(String path, Integer position) {
 		final File file = new File("paths.xml");
 		final DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder documentBuilder;
@@ -23,14 +23,7 @@ public class PathWriter {
 			documentBuilder = documentBuilderFactory.newDocumentBuilder();
 			document = documentBuilder.parse(file);
 
-			System.out
-					.println("##### OLD PATH IS :  " + document.getElementsByTagName("path").item(0).getTextContent());
-			System.out.println("##### PATH SET TO :  " + path);
-
-			document.getElementsByTagName("path").item(0).setTextContent(path);
-
-			System.out
-					.println("##### NEW PATH IS :  " + document.getElementsByTagName("path").item(0).getTextContent());
+			document.getElementsByTagName("path").item(position).setTextContent(path);
 
 			Transformer tf = TransformerFactory.newInstance().newTransformer();
 			tf.setOutputProperty(OutputKeys.INDENT, "yes");

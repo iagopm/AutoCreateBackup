@@ -6,15 +6,17 @@
 	</properties>
 	<body>
 
-		<release version="1.0" date="YYYY-MM-DD"
-			description="version/desc">
+		<release version="1.01" date="2019-09-05"
+			description="enhanced modularity and capabilities of reading paths">
 			<!-- NEW FUNCTIONALITIES -->
 			<!-- UPDATES -->
 			<!-- FIXES -->
 			<!-- REMOVE -->
 			<!-- CHANGES ON VERSIONS -->
-			<action dev="iagopm" date="YYYY-MM-DD" type="update">
-				describe actions
+			<action dev="iagopm" date="2019-09-05" type="add">
+				-Removed pathing using System.get("user.xxxx") an replacing it by using a second target path for the backups
+				-Created another panel in the Configuration class in order to add the extra path instead of using user.xxxx/Desktop 
+				-Reducing console output verboseness
 			</action>
 		</release>
 	</body>

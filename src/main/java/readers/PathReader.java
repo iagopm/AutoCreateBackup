@@ -10,7 +10,7 @@ public class PathReader {
 
 	private String backupPath;
 
-	public PathReader() {
+	public PathReader(Integer position) {
 		File file = new File("paths.xml");
 		System.out.println("##### paths.xml PATHS :  " + file.getAbsolutePath());
 		final DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
@@ -20,9 +20,8 @@ public class PathReader {
 		try {
 			documentBuilder = documentBuilderFactory.newDocumentBuilder();
 			document = documentBuilder.parse(file);
-			setBackupPath(document.getElementsByTagName("path").item(0).getTextContent());
-
-			System.out.println("##### PATH TO BACKUP :  " + backupPath);
+			setBackupPath(document.getElementsByTagName("path").item(position).getTextContent());
+			System.out.println("##### PATHREADER :  " + backupPath);
 		} catch (Exception e) {
 		}
 	}

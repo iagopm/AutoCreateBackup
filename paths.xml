@@ -1,2 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<path></path>
+<paths>
+	<path id="0"></path>
+	<path id="1"></path>
+</paths>

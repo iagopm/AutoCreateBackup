@@ -7,7 +7,7 @@ public class InitialCheck {
 
 	public InitialCheck() {
 		try {
-			PathProcessor pp = new PathProcessor();
+			PathProcessor pp = new PathProcessor(0);
 			if (pp.getPath().length() > 0 ) {
 				check = true;
 			} else {
@@ -15,6 +15,7 @@ public class InitialCheck {
 			}
 		} catch (Exception e) {
 		}
+
 	}
 
 	public Boolean getCheck() {

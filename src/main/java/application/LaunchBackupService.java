@@ -10,7 +10,8 @@ import java.util.Random;
 import readers.PathReader;
 
 public class LaunchBackupService extends Thread {
-	private String backupFile = new PathReader().getBackupPath();
+	private String backupFile = new PathReader(0).getBackupPath();
+	private String backupDir = new PathReader(1).getBackupPath();
 	private Integer day = 86400000;
 	private Integer year = 365;
 
@@ -21,6 +22,7 @@ public class LaunchBackupService extends Thread {
 	@Override
 	public void run() {
 		super.run();
+		System.out.println(backupDir);
 		initDirectory();
 		Integer iterator = 0;
 		while (iterator < year) {
@@ -34,9 +36,7 @@ public class LaunchBackupService extends Thread {
 	}
 
 	private void initDirectory() {
-		final String dir = System.getProperty("user.home");
-		System.out.println("##### HOME DIR :  " + dir + "  ##### BACKUP TARGET DIR :  " + backupFile);
-		Path backupPath = Paths.get(dir + "//BACKUPS");
+		Path backupPath = Paths.get(backupDir);
 		try {
 			Files.createDirectory(backupPath);
 		} catch (IOException e1) {
@@ -45,16 +45,11 @@ public class LaunchBackupService extends Thread {
 	}
 
 	private void makeBackup() {
-		final String dir = System.getProperty("user.home");
-		System.out.println("##### HOME DIR :  " + dir + "  ##### FROM :  " + backupFile);
-
-		String dirPath = dir + "/BACKUPS/BACKUP_" + new Random().nextInt();
-
 		try {
 			Path originalPath = Paths.get(backupFile);
-			Path copied = Paths.get(dirPath);
+			Path copied = Paths.get(backupDir+"/backup"+new Random().nextInt());
 			Files.copy(originalPath, copied, StandardCopyOption.REPLACE_EXISTING);
-			System.out.println("##### HOME DIR :  " + dir + "  ##### TARGET :  " + dirPath);
+			System.out.println("##### NEW BACKUP MADE");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
